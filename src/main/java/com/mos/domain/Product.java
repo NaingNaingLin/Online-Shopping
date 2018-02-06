@@ -55,6 +55,9 @@ public class Product implements Serializable {
 	
 	@OneToMany(mappedBy="productId")
 	private Collection<PromotionDetail> promotionDetailCollection;
+	
+	@OneToMany(mappedBy="productId")
+	private Collection<PurchaseDetail> purchaseDetailCollection;
 
 	public int getId() {
 		return id;
@@ -126,6 +129,14 @@ public class Product implements Serializable {
 
 	public void setPromotionDetailCollection(Collection<PromotionDetail> promotionDetailCollection) {
 		this.promotionDetailCollection = promotionDetailCollection;
+	}
+
+	public Collection<PurchaseDetail> getPurchaseDetailCollection() {
+		return purchaseDetailCollection;
+	}
+
+	public void setPurchaseDetailCollection(Collection<PurchaseDetail> purchaseDetailCollection) {
+		this.purchaseDetailCollection = purchaseDetailCollection;
 	}
 	
 	
