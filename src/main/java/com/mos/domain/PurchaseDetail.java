@@ -26,13 +26,18 @@ public class PurchaseDetail implements Serializable{
 	@Length(min = 1)
 	private int quantity;
 	
-	@JoinColumn(name="Purchase_Id", referencedColumnName="purchaseId")
+
 	@ManyToOne
 	private Purchase purchaseId;
 	
-	@JoinColumn(name="Product_Id", referencedColumnName="id")
+	
 	@ManyToOne
 	private Product productId;
+	
+	public PurchaseDetail() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getPurchaseDetailId() {
 		return purchaseDetailId;

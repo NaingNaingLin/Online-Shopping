@@ -1,18 +1,25 @@
 package com.mos.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.mos.helperclasses.Address;
 
 @Entity
 public class Customer implements Serializable{
@@ -31,13 +38,19 @@ public class Customer implements Serializable{
 	@NotEmpty(message="NRC cannot be Empty.")
 	private String nrc;
 	@Embedded
-	private String Address;
+	private Address address;
 	@NotEmpty(message="Phone Number cannot be Empty.")
 	private String phoneNo;
 	
 	@OneToOne
+	@JoinColumn(name="Account_Id")
 	private Account accountId;
 	
+	@OneToMany(mappedBy="customerId")
+	private Collection<Purchase> purchaseCollection;
+	
+	@OneToMany(mappedBy="customerId")
+	private List<FavouriteProduct> favouriteProductCollection = new ArrayList<>();
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
@@ -103,14 +116,33 @@ public class Customer implements Serializable{
 		this.nrc = nrc;
 	}
 
-
-	public String getAddress() {
-		return Address;
+	public Address getAddress() {
+		return address;
 	}
 
 
-	public void setAddress(String address) {
-		Address = address;
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+	public Collection<Purchase> getPurchaseCollection() {
+		return purchaseCollection;
+	}
+
+
+	public void setPurchaseCollection(Collection<Purchase> purchaseCollection) {
+		this.purchaseCollection = purchaseCollection;
+	}
+
+
+	public List<FavouriteProduct> getFavouriteProductCollection() {
+		return favouriteProductCollection;
+	}
+
+
+	public void setFavouriteProductCollection(List<FavouriteProduct> favouriteProductCollection) {
+		this.favouriteProductCollection = favouriteProductCollection;
 	}
 
 

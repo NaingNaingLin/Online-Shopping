@@ -18,7 +18,7 @@ public class Category implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int categoryId;
     
     @NotEmpty(message = "Please provide Category Code!")
     private String categoryCode;
@@ -42,11 +42,11 @@ public class Category implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return categoryId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryCode() {

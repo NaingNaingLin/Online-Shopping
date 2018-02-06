@@ -24,16 +24,21 @@ public class FavouriteProduct implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int favouriteProductId;
 	
-	@JoinColumn(name="Customer_Id", referencedColumnName="customerId")
+
 	@ManyToOne
 	private Customer customerId;
 	
-	@JoinColumn(name="ProductDetail_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private ProductDetail productDetailId;
 	
 	@Temporal(TemporalType.DATE)
 	private Date favouriteDate;
+	
+	public FavouriteProduct() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getFavouriteProductId() {
 		return favouriteProductId;

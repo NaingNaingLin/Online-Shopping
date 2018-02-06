@@ -8,11 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.mos.helperclasses.Address;
 
 @Entity
 public class User implements Serializable{
@@ -32,11 +35,12 @@ public class User implements Serializable{
 	@NotEmpty(message="NRC cannot be Empty.")
 	private String nrc;
 	@Embedded
-	private String Address;
+	private Address address;
 	@NotEmpty(message="Phone Number cannot be Empty.")
 	private String phoneNo;
 	
 	@OneToOne
+	@JoinColumn(name="Account_Id")
 	private Account accountId;
 	
 	public User() {
@@ -91,12 +95,12 @@ public class User implements Serializable{
 		this.nrc = nrc;
 	}
 
-	public String getAddress() {
-		return Address;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddress(String address) {
-		Address = address;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public String getPhoneNo() {

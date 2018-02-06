@@ -20,25 +20,30 @@ public class ProductDetail implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int productDetailId;
 	
-	@JoinColumn (name = "Product_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private Product productId;
 	
-	@JoinColumn (name = "Field_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private FieldMaster fieldId;
 	
 	@Size(max = 300)
 	private String description;
-
-	public int getId() {
-		return id;
+	
+	public ProductDetail() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getId() {
+		return productDetailId;
+	}
+
+	public void setId(int productDetailId) {
+		this.productDetailId = productDetailId;
 	}
 
 	public Product getProductId() {

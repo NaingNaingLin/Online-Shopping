@@ -17,13 +17,17 @@ import org.hibernate.validator.constraints.Length;
 public class Account implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int accountId;
+	
 	@Email
 	private String email;
+	
 	@Length(min=5, message="Your password must be 5.")
 	private String password;
+	
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	

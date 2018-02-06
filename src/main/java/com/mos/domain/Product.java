@@ -1,13 +1,13 @@
 package com.mos.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
@@ -25,7 +25,7 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int productId;
 	
 	@Size(max = 50)
 	@NotEmpty(message = "Please provide Product Code!")
@@ -38,33 +38,38 @@ public class Product implements Serializable {
 	@NotEmpty(message = "Please provide Unit Price!")
 	private double unitPrice;
 	
-	@JoinColumn(name="Company_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private Company companyId;
 	
-	@JoinColumn(name="Brand_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private Brand brandId;
 	
-	@JoinColumn(name="Category_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private Category categoryId;
 	
 	@OneToMany(mappedBy="productId")
-	private Collection<ProductDetail> productDetailCollection;
+	private List<ProductDetail> productDetailCollection = new ArrayList<>();
 	
 	@OneToMany(mappedBy="productId")
-	private Collection<PromotionDetail> promotionDetailCollection;
+	private List<PromotionDetail> promotionDetailCollection = new ArrayList<>();
 	
 	@OneToMany(mappedBy="productId")
-	private Collection<PurchaseDetail> purchaseDetailCollection;
+	private List<PurchaseDetail> purchaseDetailCollection = new ArrayList<>();
 
-	public int getId() {
-		return id;
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getId() {
+		return productId;
+	}
+
+	public void setId(int productId) {
+		this.productId = productId;
 	}
 
 	public String getProductCode() {
@@ -115,29 +120,37 @@ public class Product implements Serializable {
 		this.categoryId = categoryId;
 	}
 
-	public Collection<ProductDetail> getProductDetailCollection() {
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public List<ProductDetail> getProductDetailCollection() {
 		return productDetailCollection;
 	}
 
-	public void setProductDetailCollection(Collection<ProductDetail> productDetailCollection) {
+	public void setProductDetailCollection(List<ProductDetail> productDetailCollection) {
 		this.productDetailCollection = productDetailCollection;
 	}
 
-	public Collection<PromotionDetail> getPromotionDetailCollection() {
+	public List<PromotionDetail> getPromotionDetailCollection() {
 		return promotionDetailCollection;
 	}
 
-	public void setPromotionDetailCollection(Collection<PromotionDetail> promotionDetailCollection) {
+	public void setPromotionDetailCollection(List<PromotionDetail> promotionDetailCollection) {
 		this.promotionDetailCollection = promotionDetailCollection;
 	}
 
-	public Collection<PurchaseDetail> getPurchaseDetailCollection() {
+	public List<PurchaseDetail> getPurchaseDetailCollection() {
 		return purchaseDetailCollection;
 	}
 
-	public void setPurchaseDetailCollection(Collection<PurchaseDetail> purchaseDetailCollection) {
+	public void setPurchaseDetailCollection(List<PurchaseDetail> purchaseDetailCollection) {
 		this.purchaseDetailCollection = purchaseDetailCollection;
 	}
-	
+
 	
 }

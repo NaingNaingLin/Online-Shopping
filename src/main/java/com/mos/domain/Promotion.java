@@ -20,7 +20,7 @@ public class Promotion implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int promotionId;
 	
 	@NotEmpty(message = "Please provide Promotion Code!")
 	private String promotionCode;
@@ -43,11 +43,11 @@ public class Promotion implements Serializable{
 	}
 
 	public int getId() {
-		return id;
+		return promotionId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int promotionId) {
+		this.promotionId = promotionId;
 	}
 
 	public String getPromotionCode() {

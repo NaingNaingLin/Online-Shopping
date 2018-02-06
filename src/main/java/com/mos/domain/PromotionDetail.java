@@ -21,7 +21,7 @@ public class PromotionDetail implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int promotionDetailId;
 	
 	@NotEmpty(message="Please provide Description!")
 	private String Description;
@@ -34,11 +34,11 @@ public class PromotionDetail implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date toDate;
 	
-	@JoinColumn(name="Promotion_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private Promotion promotionId;
 	
-	@JoinColumn(name="Product_Id", referencedColumnName="id")
+
 	@ManyToOne
 	private Product productId;
 	
@@ -52,10 +52,10 @@ public class PromotionDetail implements Serializable{
 		this.toDate = toDate;
 	}
 	public int getId() {
-		return id;
+		return promotionDetailId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int promotionDetailId) {
+		this.promotionDetailId = promotionDetailId;
 	}
 	public String getDescription() {
 		return Description;

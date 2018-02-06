@@ -17,7 +17,7 @@ public class Brand implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int brandId;
     
     @NotEmpty(message = "Please provide Brand Code!")
     private String brandCode;
@@ -45,11 +45,11 @@ public class Brand implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return brandId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int brandId) {
+        this.brandId = brandId;
     }
 
     public String getBrandCode() {
