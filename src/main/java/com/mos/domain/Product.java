@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
@@ -40,35 +41,38 @@ public class Product implements Serializable {
 	
 
 	@ManyToOne
+	@JoinColumn(name="Company_Id")
 	private Company companyId;
 	
 
 	@ManyToOne
+	@JoinColumn(name="Brand_Id")
 	private Brand brandId;
 	
 
 	@ManyToOne
+	@JoinColumn(name="Category_Id")
 	private Category categoryId;
 	
 	@OneToMany(mappedBy="productId")
-	private List<ProductDetail> productDetailCollection = new ArrayList<>();
+	private List<ProductDetail> productDetailList = new ArrayList<>();
 	
 	@OneToMany(mappedBy="productId")
-	private List<PromotionDetail> promotionDetailCollection = new ArrayList<>();
+	private List<PromotionDetail> promotionDetailList = new ArrayList<>();
 	
 	@OneToMany(mappedBy="productId")
-	private List<PurchaseDetail> purchaseDetailCollection = new ArrayList<>();
+	private List<PurchaseDetail> purchaseDetailList = new ArrayList<>();
 
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setId(int productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
@@ -120,37 +124,30 @@ public class Product implements Serializable {
 		this.categoryId = categoryId;
 	}
 
-	public int getProductId() {
-		return productId;
+	public List<ProductDetail> getProductDetailList() {
+		return productDetailList;
 	}
 
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProductDetailList(List<ProductDetail> productDetailList) {
+		this.productDetailList = productDetailList;
 	}
 
-	public List<ProductDetail> getProductDetailCollection() {
-		return productDetailCollection;
+	public List<PromotionDetail> getPromotionDetailList() {
+		return promotionDetailList;
 	}
 
-	public void setProductDetailCollection(List<ProductDetail> productDetailCollection) {
-		this.productDetailCollection = productDetailCollection;
+	public void setPromotionDetailList(List<PromotionDetail> promotionDetailList) {
+		this.promotionDetailList = promotionDetailList;
 	}
 
-	public List<PromotionDetail> getPromotionDetailCollection() {
-		return promotionDetailCollection;
+	public List<PurchaseDetail> getPurchaseDetailList() {
+		return purchaseDetailList;
 	}
 
-	public void setPromotionDetailCollection(List<PromotionDetail> promotionDetailCollection) {
-		this.promotionDetailCollection = promotionDetailCollection;
+	public void setPurchaseDetailList(List<PurchaseDetail> purchaseDetailList) {
+		this.purchaseDetailList = purchaseDetailList;
 	}
 
-	public List<PurchaseDetail> getPurchaseDetailCollection() {
-		return purchaseDetailCollection;
-	}
-
-	public void setPurchaseDetailCollection(List<PurchaseDetail> purchaseDetailCollection) {
-		this.purchaseDetailCollection = purchaseDetailCollection;
-	}
-
+	
 	
 }

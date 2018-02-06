@@ -36,10 +36,12 @@ public class PromotionDetail implements Serializable{
 	
 
 	@ManyToOne
+	@JoinColumn(name="Promotion_Id")
 	private Promotion promotionId;
 	
 
 	@ManyToOne
+	@JoinColumn(name="Product_Id")
 	private Product productId;
 	
 	public PromotionDetail() {

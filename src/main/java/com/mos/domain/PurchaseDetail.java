@@ -28,10 +28,12 @@ public class PurchaseDetail implements Serializable{
 	
 
 	@ManyToOne
+	@JoinColumn(name="Purchase_Id")
 	private Purchase purchaseId;
 	
 	
 	@ManyToOne
+	@JoinColumn(name="Product_Id")
 	private Product productId;
 	
 	public PurchaseDetail() {

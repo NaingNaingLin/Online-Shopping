@@ -35,7 +35,7 @@ public class FieldMaster implements Serializable {
 	private String fieldName;
 
 	@OneToMany(mappedBy= "fieldId")
-	private List<ProductDetail> productDetailCollection = new ArrayList<>();
+	private List<ProductDetail> productDetailList = new ArrayList<>();
 	
 	public FieldMaster() {
 		super();
@@ -74,12 +74,12 @@ public class FieldMaster implements Serializable {
 		this.fieldMasterId = fieldMasterId;
 	}
 
-	public List<ProductDetail> getProductDetailCollection() {
-		return productDetailCollection;
+	public List<ProductDetail> getProductDetailList() {
+		return productDetailList;
 	}
 
-	public void setProductDetailCollection(List<ProductDetail> productDetailCollection) {
-		this.productDetailCollection = productDetailCollection;
+	public void setProductDetailList(List<ProductDetail> productDetailList) {
+		this.productDetailList = productDetailList;
 	}
 
 

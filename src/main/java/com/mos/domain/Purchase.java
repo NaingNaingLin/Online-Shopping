@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -29,10 +30,11 @@ public class Purchase implements Serializable {
 	
 
 	@ManyToOne
+	@JoinColumn(name="Customer_Id")
 	private Customer customerId;
 	
 	@OneToMany(mappedBy="purchaseId")
-	private List<PurchaseDetail> purchaseDetailCollection = new ArrayList<>();
+	private List<PurchaseDetail> purchaseDetailList = new ArrayList<>();
 	
 	@Temporal(TemporalType.DATE)
 	private Date purchaseDate;
@@ -67,12 +69,12 @@ public class Purchase implements Serializable {
 		this.purchaseDate = purchaseDate;
 	}
 
-	public List<PurchaseDetail> getPurchaseDetailCollection() {
-		return purchaseDetailCollection;
+	public List<PurchaseDetail> getPurchaseDetailList() {
+		return purchaseDetailList;
 	}
 
-	public void setPurchaseDetailCollection(List<PurchaseDetail> purchaseDetailCollection) {
-		this.purchaseDetailCollection = purchaseDetailCollection;
+	public void setPurchaseDetailList(List<PurchaseDetail> purchaseDetailList) {
+		this.purchaseDetailList = purchaseDetailList;
 	}
 
 	

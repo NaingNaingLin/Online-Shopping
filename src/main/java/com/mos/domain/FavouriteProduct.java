@@ -26,10 +26,12 @@ public class FavouriteProduct implements Serializable{
 	
 
 	@ManyToOne
+	@JoinColumn(name="Customer_Id")
 	private Customer customerId;
 	
 
 	@ManyToOne
+	@JoinColumn(name="ProductDetail_Id")
 	private ProductDetail productDetailId;
 	
 	@Temporal(TemporalType.DATE)

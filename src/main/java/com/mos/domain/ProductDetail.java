@@ -24,10 +24,12 @@ public class ProductDetail implements Serializable {
 	
 
 	@ManyToOne
+	@JoinColumn(name="Product_Id")
 	private Product productId;
 	
 
 	@ManyToOne
+	@JoinColumn(name="Field_Id")
 	private FieldMaster fieldId;
 	
 	@Size(max = 300)
