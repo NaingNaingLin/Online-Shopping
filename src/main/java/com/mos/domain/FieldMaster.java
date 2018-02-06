@@ -1,16 +1,19 @@
 package com.mos.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class FieldMaster implements Serializable{
+public class FieldMaster implements Serializable {
 
 	/**
 	 * 
@@ -21,12 +24,17 @@ public class FieldMaster implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@NotEmpty (message = "Please provide Field Code!")
+	@Size(max = 50)
+	@NotEmpty(message = "Please provide field Code!")
 	private String fieldCode;
 	
-	@NotEmpty (message = "Please provide Field Name!")
+	@Size(max = 50)
+	@NotEmpty(message = "Please provide field Name!")
 	private String fieldName;
 
+	@OneToMany(mappedBy= "fieldId")
+	private Collection<ProductDetail> productDetailCollection;
+	
 	public int getId() {
 		return id;
 	}
@@ -51,6 +59,14 @@ public class FieldMaster implements Serializable{
 		this.fieldName = fieldName;
 	}
 
+	public Collection<ProductDetail> getProductDetailCollection() {
+		return productDetailCollection;
+	}
+
+	public void setProductDetailCollection(Collection<ProductDetail> productDetailCollection) {
+		this.productDetailCollection = productDetailCollection;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -58,6 +74,7 @@ public class FieldMaster implements Serializable{
 		result = prime * result + ((fieldCode == null) ? 0 : fieldCode.hashCode());
 		result = prime * result + ((fieldName == null) ? 0 : fieldName.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((productDetailCollection == null) ? 0 : productDetailCollection.hashCode());
 		return result;
 	}
 
@@ -82,8 +99,14 @@ public class FieldMaster implements Serializable{
 			return false;
 		if (id != other.id)
 			return false;
+		if (productDetailCollection == null) {
+			if (other.productDetailCollection != null)
+				return false;
+		} else if (!productDetailCollection.equals(other.productDetailCollection))
+			return false;
 		return true;
 	}
+
 	
 	
 }
