@@ -1,5 +1,78 @@
 package com.mos.domain;
 
-public class Category {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+public class Category implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @NotEmpty(message = "Please provide Category Code!")
+    private String categoryCode;
+    
+    @NotEmpty(message = "Please provide Category Name!")
+    private String name;
+    
+    @NotEmpty(message = "Please provide Description!")
+    private String description;
+    
+    @OneToMany(mappedBy = "categoryId")
+    private List<Product> productList = new ArrayList<>();
+
+    public Category() {
+    }
+
+    public Category(String categoryCode, String name, String description) {
+        this.categoryCode = categoryCode;
+        this.name = name;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCategoryCode() {
+        return categoryCode;
+    }
+
+    public void setCategoryCode(String categoryCode) {
+        this.categoryCode = categoryCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+	
 }
+
