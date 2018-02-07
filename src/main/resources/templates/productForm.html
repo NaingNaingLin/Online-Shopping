@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Product</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<section>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Product</h1>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<form action="#" th:action="@{/product}" th:object="${product}"
+				method="post">
+				<p>
+					Product Code <input type="text" th:field="*{productCode}" />
+				</p>
+				<p>
+					Quantity <input type="text" th:field="*{quantity}" />
+				</p>
+
+				<p>
+					Unit Price <input type="text" th:field="*{unitPrice}" />
+				</p>
+				<p>
+					<input type="submit" value="Sumbit" /> <input type="reset"
+						value="Reset" />
+				</p>
+			</form>
+		</div>
+	</section>
+</body>
+</html>
