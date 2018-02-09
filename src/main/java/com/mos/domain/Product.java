@@ -26,7 +26,7 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int productId;
+	private Long productId;
 	
 	@Size(max = 50)
 	@NotEmpty(message = "Please provide Product Code!")
@@ -79,11 +79,11 @@ public class Product implements Serializable {
 
 
 
-	public int getProductId() {
+	public Long getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
 
