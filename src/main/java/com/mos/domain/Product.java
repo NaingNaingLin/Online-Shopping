@@ -26,17 +26,17 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int productId;
+	private Long productId;
 	
-	@Size(max = 50)
-	@NotEmpty(message = "Please provide Product Code!")
+	//@Size(max = 50)
+	//@NotEmpty(message = "Please provide Product Code!")
 	private String productCode;
 	
-	@NotEmpty(message = "Please provide Quantity!")
-	@Length(min = 1, max = 100000, message = "Please provide Quantity Range Between 1 and 100,000")
+	//@NotEmpty(message = "Please provide Quantity!")
+	//@Length(min = 1, max = 100000, message = "Please provide Quantity Range Between 1 and 100,000")
 	private int quantity;
 	
-	@NotEmpty(message = "Please provide Unit Price!")
+	//@NotEmpty(message = "Please provide Unit Price!")
 	private double unitPrice;
 	
 
@@ -79,11 +79,11 @@ public class Product implements Serializable {
 
 
 
-	public int getProductId() {
+	public Long getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
 

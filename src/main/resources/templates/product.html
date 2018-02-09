@@ -20,6 +20,8 @@
 			<div class="col-sm-6 col-md-3" th:each="product :${products}">
 				<div class="col-md-5">
 					<h3 th:text="${product.productCode}"></h3>
+					<h3 th:text="${product.quantity}"></h3>
+					<h3 th:text="${product.unitPrice}"></h3>
 					
 					</div>
 				</div>
