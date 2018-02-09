@@ -67,6 +67,17 @@ public class Product implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public Product(String productCode, int quantity, double unitPrice) {
+		super();
+		this.productCode = productCode;
+		this.quantity = quantity;
+		this.unitPrice = unitPrice;
+	}
+
+
 
 	public int getProductId() {
 		return productId;
