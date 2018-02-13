@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Product implements Serializable {
@@ -26,17 +22,17 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int productId;
+	private Long productId;
 	
-	@Size(max = 50)
-	@NotEmpty(message = "Please provide Product Code!")
+	//@Size(max = 50)
+	//@NotEmpty(message = "Please provide Product Code!")
 	private String productCode;
 	
-	@NotEmpty(message = "Please provide Quantity!")
-	@Length(min = 1, max = 100000, message = "Please provide Quantity Range Between 1 and 100,000")
+	//@NotEmpty(message = "Please provide Quantity!")
+	//@Length(min = 1, max = 100000, message = "Please provide Quantity Range Between 1 and 100,000")
 	private int quantity;
 	
-	@NotEmpty(message = "Please provide Unit Price!")
+	//@NotEmpty(message = "Please provide Unit Price!")
 	private double unitPrice;
 	
 
@@ -67,12 +63,23 @@ public class Product implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
-	public int getProductId() {
+	public Product(String productCode, int quantity, double unitPrice) {
+		super();
+		this.productCode = productCode;
+		this.quantity = quantity;
+		this.unitPrice = unitPrice;
+	}
+
+
+
+	public Long getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
 
