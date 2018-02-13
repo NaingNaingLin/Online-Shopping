@@ -44,15 +44,25 @@ public class Brand implements Serializable {
         this.Description = Description;
     }
 
-    public int getId() {
-        return brandId;
-    }
+    
 
-    public void setId(int brandId) {
-        this.brandId = brandId;
-    }
+    public int getBrandId() {
+		return brandId;
+	}
 
-    public String getBrandCode() {
+	public void setBrandId(int brandId) {
+		this.brandId = brandId;
+	}
+
+	public List<Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Product> productList) {
+		this.productList = productList;
+	}
+
+	public String getBrandCode() {
         return brandCode;
     }
 

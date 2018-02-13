@@ -11,4 +11,16 @@ public class TestController {
 		
 		return "test";
 	}
+	
+	@RequestMapping("/login")
+	public String login() {
+		
+		return "login";
+	}
+	
+	@RequestMapping("/layout")
+	public String layout() {
+		
+		return "admin/fragments/layout";
+	}
 }
