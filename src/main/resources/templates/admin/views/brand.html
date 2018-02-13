@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="admin/fragments/header :: headlink">
+	</head>
+	<body>
+		<header th:replace="admin/fragments/header :: header"></header>
+		
+		<div class="d-flex align-items-stretch">
+			<br/>
+			<div th:replace="admin/fragments/sidebar :: sidebar"></div>
+			
+				<div class="page-content">
+			        <div class="page-header">
+			        	<h2 class="h5 no-margin-bottom">Add New Brand</h2>
+			        </div>
+			        
+			        <section class="no-padding-top no-padding-bottom">
+			        	<div class="container-fluid">
+			        		<form action="#" th:action="@{/add}" th:object="${brand}" method="post" class="form-horizontal" enctype="multipart/form-data">
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="brandCode">Brand Code</label></strong>
+			        					<input type="text" class="form-control" id="brandCode" placeholder="Please provide Brand Code!" th:field="*{brandCode}" />
+			        				</div>
+			        			</div>
+			        			
+			        			
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="brandName">Brand Name</label></strong>
+			        					<input type="text" class="form-control" id="brandName" placeholder="Please provide Brand Name!" th:field="*{name}" />
+			        				</div>
+			        			</div>
+			        			
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="country">Country</label></strong>
+			        					<select class="form-control" th:field="*{country}" id="country">
+			        						<option value="" text="- Select Country -"></option>
+			        						<option th:value="${country}" th:text="${country}"></option>
+			        					</select>
+			        					<script language="javascript">
+								            populateCountries("country");
+								        </script>
+			        					
+			        				</div>
+			        			</div>
+			        			
+			        			
+			        			
+			        		</form>	
+			        	</div>	        	
+			        </section>
+			     </div>
+			
+			
+			<div th:replace="admin/fragments/footer :: footer"></div>
+			
+		</div>
+		
+		<script src="foradmin/js/countries.js" type="text/javascript" />
+	</body>
+</html>

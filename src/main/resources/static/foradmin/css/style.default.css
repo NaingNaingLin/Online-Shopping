@@ -190,7 +190,7 @@ pre {
 .page-header {
   padding: 20px 15px;
   background: #2d3035;
-  color: rgba(211, 158, 0, 1);
+  color: #ae9e73;
   margin-bottom: 30px;
 }
 
@@ -1909,9 +1909,13 @@ input.input-material ~ label.active {
   margin-bottom: 0;
 }
 
-.table td,
-.table th {
+.table td {
   border-color: #343a40;
+}
+
+.table th {
+	border-color: #343a40;
+	color: #000000;
 }
 
 .table thead th {

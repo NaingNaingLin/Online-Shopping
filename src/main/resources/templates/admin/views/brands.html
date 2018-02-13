@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="ISO-8859-1"></meta>
-		<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<head th:replace="admin/fragments/header :: headlink">
 		
-		<title>Myanmar Online Shopping</title>
-		
-		<!-- Bootstrap CSS-->
-	    <link rel="stylesheet" href="foradmin/vendor/bootstrap/css/bootstrap.min.css" />
-	    <!-- Font Awesome CSS-->
-	    <link rel="stylesheet" href="foradmin/vendor/font-awesome/css/font-awesome.min.css" />
-	    <!-- Custom Font Icons CSS-->
-	    <link rel="stylesheet" href="foradmin/css/font.css" />
-		<!-- Custom Font Icons CSS-->
-	    <link rel="stylesheet" href="foradmin/css/font.css" />
-	    <!-- Google fonts - Muli-->
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700" />
-	    <!-- theme stylesheet-->
-	    <link rel="stylesheet" href="foradmin/css/style.default.css" id="theme-stylesheet" />
-	    <!-- Custom stylesheet - for your changes-->
-	    <link rel="stylesheet" href="foradmin/css/custom.css" />
 		
 	</head>
 	<body>
@@ -36,13 +18,13 @@
 			        
 			        <section class="no-padding-top no-padding-bottom">
 			        	<div class="container-fluid">
-			        		<table class="table table-responsive table-striped">
-			        			<tr>
-			        				<th>Id</th>
-			        				<th>Brand Code</th>
-			        				<th>Name</th>
-			        				<th>Country</th>
-			        				<th>Description</th>
+			        		<table class="table table-sm table-striped">
+			        			<tr style="background-color: white;">
+			        				<th><strong>Id</strong></th>
+			        				<th><strong>Brand Code</strong></th>
+			        				<th><strong>Name</strong></th>
+			        				<th><strong>Country</strong></th>
+			        				<th><strong>Description</strong></th>
 			        			</tr>
 			        			
 			        			<tr th:each="brand : ${brandList}">
@@ -62,15 +44,6 @@
 			
 		</div>
 		
-		
-		 <!-- JavaScript files-->
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"> </script>
-	    <script src="foradmin/vendor/bootstrap/js/bootstrap.min.js"></script>
-	    <script src="foradmin/vendor/jquery.cookie/jquery.cookie.js"> </script>
-	    <script src="foradmin/vendor/chart.js/Chart.min.js"></script>
-	    <script src="foradmin/js/charts-home.js"></script>
-	    <script src="foradmin/js/front.js"></script>
 		
 	</body>
 </html>
