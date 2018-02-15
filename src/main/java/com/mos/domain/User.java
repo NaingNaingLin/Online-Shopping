@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.mos.helperclasses.Address;
 
 @Entity
+//@SecondaryTable(name="account")
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -39,6 +40,23 @@ public class User implements Serializable{
 	@NotEmpty(message="Phone Number cannot be Empty.")
 	private String phoneNo;
 	
+	/*@Email
+	@Column(table="account")
+	private String email;
+	@Length(min=5, message="Your password must be 5.")
+	@Column(table="account")
+	private String password;
+	@Column(table="account")
+	@Enumerated(EnumType.STRING)
+	private Role role;
+	public enum Role{
+		Admin,
+		User,
+		Company,
+	}
+	*/
+	
+
 	@OneToOne
 	@JoinColumn(name="Account_Id")
 	private Account accountId;
@@ -119,8 +137,6 @@ public class User implements Serializable{
 		this.accountId = accountId;
 	}
 
-	
-	
 
 	
 }

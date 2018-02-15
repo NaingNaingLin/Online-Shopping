@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<title>Myanmar Online Shopping</title>
+
+<!-- Bootstrap CSS-->
+<link rel="stylesheet"
+	href="foradmin/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome CSS-->
+<link rel="stylesheet"
+	href="foradmin/vendor/font-awesome/css/font-awesome.min.css" />
+<!-- Custom Font Icons CSS-->
+<link rel="stylesheet" href="foradmin/css/font.css" />
+<!-- Custom Font Icons CSS-->
+<link rel="stylesheet" href="foradmin/css/font.css" />
+<!-- Google fonts - Muli-->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Muli:300,400,700" />
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="foradmin/css/style.default.css"
+	id="theme-stylesheet" />
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="foradmin/css/custom.css" />
+
+</head>
+<body>
+	<header th:replace="admin/fragments/header :: header"></header>
+
+	<div class="d-flex align-items-stretch">
+		<br />
+		<div th:replace="admin/fragments/sidebar :: sidebar"></div>
+
+		<div class="page-content">
+			<div class="page-header">
+				<h2 class="h5 no-margin-bottom">Create New Account</h2>
+			</div>
+
+			<section class="no-padding-top no-padding-bottom">
+				<!-- <div class="container-fluid">
+					<table class="table table-responsive table-striped">
+						<tr>
+							<th>Id</th>
+							<th>User Code</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Date of Birth</th>
+							<th>NRC No</th>
+							<th>Phone</th>
+							<th>Block No</th>
+							<th>Ward No</th>
+							<th>Street Name</th>
+							<th>Township</th>
+							<th>Country</th>
+						</tr>
+						<tr th:each="user : ${user}">
+							<td th:text="${user.userCode}"></td>
+							<td th:text="${user.firstName}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td th:text="${user.dob}"></td>
+							<td th:text="${user.nrc}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td th:text="${user.lastName}"></td>
+						</tr> 
+					</table>
+				</div> -->
+			</section>
+
+			<section>
+				<div class="container">
+					<form action="#" th:action="@{user}" th:object="${user}"
+						method="post">
+
+
+						<p>
+							User Code <input type="text" th:field="*{userCode}" />
+						</p>
+						<p>
+							First Name<input type="text" th:field="*{firstName}" />
+						</p>
+
+						<p>
+							Last Name <input type="text" th:field="*{lastName}" />
+						</p>
+						<p>
+							Date Of birth <input type="datetime" th:field="*{dob}" />
+						</p>
+						<p>
+							NRC No <input type="datetime" th:field="*{nrc}" />
+						</p>
+
+						<p>
+							Address <input type="text" th:field="*{address.blockNo}" />
+						</p>
+						<p>
+							Street Name<input type="text" th:field="*{address.streetName}" />
+						</p>
+						<p>
+							Ward Name <input type="text" th:field="*{address.wardName}" />
+						</p>
+						<p>
+							City <input type="text" th:field="*{address.city}" />
+						</p>
+						<p>
+							Country <input type="text" th:field="*{address.country}" />
+						</p>
+						<p>
+							Township <input type="text" th:field="*{address.township}" />
+						</p>
+						<p>
+							Phone No <input type="text" th:field="*{phoneNo}" />
+						</p>
+
+					<!-- 	<p>
+							Email <input type="text" th:field="*{accountId.email}" />
+						</p>
+						<p>
+							Password <input type="password" th:field="*{accountId.password}" />
+						</p>
+						<p>
+							Role <input type="text" th:field="*{accountId.role}" />
+						</p> -->
+
+						<p>
+							<input type="submit" value="Sumbit" /> <input type="reset"
+								value="Reset" />
+						</p>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div th:replace="admin/fragments/footer :: footer"></div>
+	</div>
+
+
+	<!-- JavaScript files-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js">
+		
+	</script>
+	<script src="foradmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="foradmin/vendor/jquery.cookie/jquery.cookie.js">
+		
+	</script>
+	<script src="foradmin/vendor/chart.js/Chart.min.js"></script>
+	<script src="foradmin/js/charts-home.js"></script>
+	<script src="foradmin/js/front.js"></script>
+
+</body>
+</html>
