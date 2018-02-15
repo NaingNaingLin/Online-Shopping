@@ -34,19 +34,31 @@
 			        			
 			        			<div class="form-group">
 			        				<div class="col-md-6">
-			        					<strong><label for="country">Country</label></strong>
-			        					<select class="form-control" th:field="*{country}" id="country">
-			        						<option value="" text="- Select Country -"></option>
-			        						<option th:value="${country}" th:text="${country}"></option>
+			        					<strong><label for="country">Country</label></strong><br/>
+			        					<select class="form-control" th:field="*{country}" >
+			        						<option value="0" th:text="'Select Country'"></option>
+			        						<option th:each="country : ${countryList}" th:value="${country.countryName}" th:text="${country.countryName}"></option>
 			        					</select>
-			        					<script language="javascript">
-								            populateCountries("country");
-								        </script>
-			        					
 			        				</div>
 			        			</div>
 			        			
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="country">Description</label></strong><br/>
+			        					<textarea rows="5" class="form-control" id="description" placeholder="Please provide Description!" th:field="*{Description}"></textarea>
+			        				</div>
+			        			</div>
 			        			
+			        			<div class="form-group">
+									<div class="row">
+										<div class="col-md-3">
+											<input class="btn btn-large btn-primary form-control" type="submit" value="ADD" />
+										</div>
+										<div class="col-md-3">
+											<input class="btn btn-large btn-secondary form-control" type="reset" value="Cancel" />
+										</div>
+									</div>
+								</div>
 			        			
 			        		</form>	
 			        	</div>	        	
@@ -57,7 +69,5 @@
 			<div th:replace="admin/fragments/footer :: footer"></div>
 			
 		</div>
-		
-		<script src="foradmin/js/countries.js" type="text/javascript" />
 	</body>
 </html>

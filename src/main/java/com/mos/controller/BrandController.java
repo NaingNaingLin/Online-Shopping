@@ -9,11 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mos.domain.Brand;
+import com.mos.domain.Country;
 import com.mos.service.BrandService;
+import com.mos.service.CountryService;
 
 @Controller
 //@RequestMapping("/brand")
@@ -21,6 +22,9 @@ public class BrandController {
 
 	@Autowired
 	private BrandService brandService;
+	
+	@Autowired
+	private CountryService countryService;
 	
 	@GetMapping("/list")
 	public ModelAndView showList(Model model) {
@@ -48,7 +52,11 @@ public class BrandController {
 		List<Brand> brandList = new ArrayList<>();
 		brandList = brandService.findAll();
 		
+		List<Country> countryList = new ArrayList<>();
+		countryList = countryService.findAll();
+		
 		modelandview.addObject("brandList", brandList);
+		modelandview.addObject("countryList", countryList);
 		modelandview.setViewName("admin/views/brand");
 		
 		return modelandview;
