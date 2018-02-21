@@ -60,18 +60,18 @@ public class UserController {
 	}
 	@RequestMapping(path = "userlist", method = RequestMethod.GET)
 	public String userList(Model model) {
-		model.addAttribute("users", userService.findAll());
+		model.addAttribute("users", userService.findAllUser());
 		return "saveuser";
 	}
 	 @RequestMapping(path = "userform/edit/{id}", method = RequestMethod.GET)
 	    public String editProduct(Model model, @PathVariable(value = "id") Integer userId) {
-	        model.addAttribute("users", userService.findOne(userId));
+	        model.addAttribute("users", userService.findOneUser(userId));
 	        return "userfrom";
 	    }
 
 	    @RequestMapping(path = "userform/delete/{id}", method = RequestMethod.GET)
 	    public String deleteProduct(@PathVariable(name = "id") Integer userId) {
-	       userService.delete(userId);
+	       userService.deleteUser(userId);
 	        return "redirect:/saveuser";
 	    }
 

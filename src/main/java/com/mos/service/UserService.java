@@ -7,9 +7,12 @@ import com.mos.domain.User;
 public interface UserService {
 	
 	void createUser(User user);
-	List<User> findAll();
+	List<User> findAllUser();
 	User findByUserId(Integer userId);
-	User findOne(Integer userId);
-	void delete(Integer userId);
+	User findOneUser(Integer userId);
+	void editUser(Integer userId);
+	void deleteUser(Integer userId);
+	
+	
 
 }

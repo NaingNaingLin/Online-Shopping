@@ -20,7 +20,7 @@ public class UserServicesImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findAll() {
+	public List<User> findAllUser() {
 		return userRepository.findAll();
 	}
 
@@ -31,14 +31,20 @@ public class UserServicesImpl implements UserService {
 	}
 
 	@Override
-	public User findOne(Integer userId) {
+	public User findOneUser(Integer userId) {
 		
 		return userRepository.findOne(userId);
 	}
 
 	@Override
-	public void delete(Integer userId) {
+	public void deleteUser(Integer userId) {
 		userRepository.delete(userId);
+		
+	}
+
+	@Override
+	public void editUser(Integer userId) {
+	//	userRepository.save(userId);
 		
 	}
 }
