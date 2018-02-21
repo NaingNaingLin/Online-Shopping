@@ -20,7 +20,7 @@
 			        			<div class="form-group">
 			        				<div class="col-md-6">
 			        					<strong><label for="brandCode">Brand Code</label></strong>
-			        					<input type="text" class="form-control" id="brandCode" placeholder="Please provide Brand Code!" th:field="*{brandCode}" />
+			        					<input autofocus="autofocus"  type="text" class="form-control" id="brandCode" placeholder="Please provide Brand Code!" th:field="*{brandCode}" />
 			        				</div>
 			        			</div>
 			        			
@@ -67,7 +67,7 @@
 			
 			
 			<div th:replace="admin/fragments/footer :: footer"></div>
-			
+
 		</div>
 	</body>
 </html>

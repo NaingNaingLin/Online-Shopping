@@ -41,14 +41,6 @@ public class FieldMaster implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
-		return fieldMasterId;
-	}
-
-	public void setId(int fieldMasterId) {
-		this.fieldMasterId = fieldMasterId;
-	}
-
 	public String getFieldCode() {
 		return fieldCode;
 	}

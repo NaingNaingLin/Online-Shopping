@@ -18,6 +18,9 @@
 			        
 			        <section class="no-padding-top no-padding-bottom">
 			        	<div class="container-fluid">
+			        		<th:block th:if="${lastAction != null}">
+			        			<h3 th:text="${lastAction}"/>
+			        		</th:block>
 			        		<table class="table table-sm table-striped">
 			        			<tr style="background-color: white;">
 			        				<th><strong>Id</strong></th>
@@ -25,6 +28,7 @@
 			        				<th><strong>Name</strong></th>
 			        				<th><strong>Country</strong></th>
 			        				<th><strong>Description</strong></th>
+			        				<th><strong>Action</strong></th>
 			        			</tr>
 			        			
 			        			<tr th:each="brand : ${brandList}">
@@ -33,6 +37,10 @@
 			        				<td th:text="${brand.name}"></td>
 			        				<td th:text="${brand.country}"></td>
 			        				<td th:text="${brand.description}"></td>
+			        				<td>
+			        				<a th:href="@{/edit/}+${brand.brandId}"> Edit </a> &nbsp; &nbsp;
+			        				<a th:href="@{/delete/}+${brand.brandId}"> Delete </a>
+			        				</td>
 			        			</tr>
 			        		</table>	
 			        	</div>	        	
@@ -41,6 +49,15 @@
 			
 			
 			<div th:replace="admin/fragments/footer :: footer"></div>
+			
+			<script>
+				function deleteConfirmation(){
+					if(confirm("Are you sure to delete?")){
+						
+					}
+				}
+			</script>
+			
 			
 		</div>
 		
