@@ -1,5 +1,7 @@
 package com.mos.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,18 @@ public class AccountServiceImpl implements AccountService {
 		accountRepository.saveAndFlush(account);
 		
 		
+	}
+
+	@Override
+	public List<Account> findAll() {
+		
+		return accountRepository.findAll();
+	}
+
+	@Override
+	public Account findByAccountId(Integer accountId) {
+		
+		return accountRepository.findOne(accountId);
 	}
 
 }

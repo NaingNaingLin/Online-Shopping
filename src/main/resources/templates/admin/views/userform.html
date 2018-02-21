@@ -38,8 +38,8 @@
 				<h2 class="h5 no-margin-bottom">Create New Account</h2>
 			</div>
 
-			<section class="no-padding-top no-padding-bottom">
-				<!-- <div class="container-fluid">
+			<!-- <section class="no-padding-top no-padding-bottom">
+				 <div class="container-fluid">
 					<table class="table table-responsive table-striped">
 						<tr>
 							<th>Id</th>
@@ -69,67 +69,66 @@
 							<td th:text="${user.lastName}"></td>
 						</tr> 
 					</table>
-				</div> -->
-			</section>
+				</div> 
+			</section>-->
 
 			<section>
 				<div class="container">
-					<form action="#" th:action="@{user}" th:object="${user}"
+
+					<form action="#" th:action="@{users}" th:object="${users}"
 						method="post">
-
-
 						<p>
-							User Code <input type="text" th:field="*{userCode}" />
+							User Code <input type="text" name="userCode" th:value="${userCode}" th:field="*{userCode}" />
 						</p>
 						<p>
-							First Name<input type="text" th:field="*{firstName}" />
+							First Name<input type="text"  name="firstName" th:value="${firstNmae}"  th:field="*{firstName}" />
 						</p>
 
 						<p>
-							Last Name <input type="text" th:field="*{lastName}" />
+							Last Name <input type="text"  name="lastName" th:value="${lastName}"  th:field="*{lastName}" />
 						</p>
 						<p>
-							Date Of birth <input type="datetime" th:field="*{dob}" />
+							Date Of birth <input type="datetime"  name="dob" th:value="${dob}"  th:field="*{dob}" />
 						</p>
 						<p>
-							NRC No <input type="datetime" th:field="*{nrc}" />
+							NRC No <input type="text"  name="nrc" th:value="${nrc}"  th:field="*{nrc}" />
 						</p>
 
 						<p>
-							Address <input type="text" th:field="*{address.blockNo}" />
+							Address <input type="text"  name="blockNo" th:value="${address}"  th:field="*{address.blockNo}" />
 						</p>
 						<p>
-							Street Name<input type="text" th:field="*{address.streetName}" />
+							Street Name<input type="text"  name="streetName" th:value="${address}"  th:field="*{address.streetName}" />
 						</p>
 						<p>
-							Ward Name <input type="text" th:field="*{address.wardName}" />
+							Ward Name <input type="text"  name="wardName" th:value="${address}"  th:field="*{address.wardName}" />
 						</p>
 						<p>
-							City <input type="text" th:field="*{address.city}" />
+							City <input type="text" name="city" th:value="${address}"  th:field="*{address.city}" />
 						</p>
 						<p>
-							Country <input type="text" th:field="*{address.country}" />
+							Country <input type="text" name="country" th:value="${address}"  th:field="*{address.country}" />
 						</p>
 						<p>
-							Township <input type="text" th:field="*{address.township}" />
+							Township <input type="text"  name="township" th:value="${address}"  th:field="*{address.township}" />
 						</p>
 						<p>
-							Phone No <input type="text" th:field="*{phoneNo}" />
+							Phone No <input type="text"  name="phoneNo" th:value="${phoneNo}"  th:field="*{phoneNo}" />
 						</p>
 
-					<!-- 	<p>
-							Email <input type="text" th:field="*{accountId.email}" />
+						<!-- <p>
+							Email <input type="text" name="email" th:value="${accountId}"  th:field="*{accountId.email}" />
 						</p>
 						<p>
-							Password <input type="password" th:field="*{accountId.password}" />
+							Password <input type="text" name="password" th:value="${accountId}"  th:field="*{accountId.password}" />
 						</p>
 						<p>
-							Role <input type="text" th:field="*{accountId.role}" />
+							Role <input type="text" name="role" th:value="${accountId}"  th:field="*{accountId.role}" />
 						</p> -->
 
 						<p>
 							<input type="submit" value="Sumbit" /> <input type="reset"
-								value="Reset" />
+								value="Reset" /> 
 						</p>
 					</form>
 				</div>
