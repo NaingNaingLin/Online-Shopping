@@ -26,25 +26,21 @@ public class UserServicesImpl implements UserService {
 
 	@Override
 	public User findByUserId(Integer userId) {
-
 		return userRepository.findOne(userId);
 	}
 
 	@Override
-	public User findOneUser(Integer userId) {
-		
-		return userRepository.findOne(userId);
+	public void editUser(User user) {
+		userRepository.save(user);
 	}
 
 	@Override
 	public void deleteUser(Integer userId) {
+		
 		userRepository.delete(userId);
 		
 	}
 
-	@Override
-	public void editUser(Integer userId) {
-	//	userRepository.save(userId);
-		
-	}
+
+
 }

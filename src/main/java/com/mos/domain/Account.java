@@ -11,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-
 
 
 @Entity
@@ -26,10 +23,10 @@ public class Account implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int accountId;
 	
-	@Email
+	//@Email
 	private String email;
 	
-	@Length(min=5, message="Your password must be 5.")
+	//@Length(min=5, message="Your password must be 5.")
 	private String password;
 	
 	@Enumerated(EnumType.STRING)

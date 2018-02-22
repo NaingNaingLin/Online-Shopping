@@ -9,8 +9,7 @@ public interface UserService {
 	void createUser(User user);
 	List<User> findAllUser();
 	User findByUserId(Integer userId);
-	User findOneUser(Integer userId);
-	void editUser(Integer userId);
+	void editUser(User user);
 	void deleteUser(Integer userId);
 	
 	
