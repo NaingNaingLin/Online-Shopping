@@ -74,7 +74,7 @@ public class UserController {
 		return modelandview;
 	}
 
-	@RequestMapping(path = "/edit/{userId}", method = RequestMethod.GET)
+	@RequestMapping(path = "user/edit/{userId}", method = RequestMethod.GET)
 	public String editUser(@PathVariable("userId") Integer userId, Model model) {
 
 		model.addAttribute("updateUser", userService.findByUserId(userId));
@@ -82,7 +82,7 @@ public class UserController {
 		return "admin/views/user/edituser";
 	}
 
-	@RequestMapping(path = "/edit/{userId}", method = RequestMethod.POST)
+	@RequestMapping(path = "user/edit/{userId}", method = RequestMethod.POST)
 	public ModelAndView editUser(@PathVariable("userId") Integer userId,
 			@ModelAttribute("updateUser") @Valid User updatedUser) {
 
@@ -104,7 +104,7 @@ public class UserController {
 		return modelandview;
 	}
 
-	@RequestMapping(path = "/delete/{userId}", method = RequestMethod.GET)
+	@RequestMapping(path = "user/delete/{userId}", method = RequestMethod.GET)
 	public ModelAndView deleteUser(@PathVariable("userId") Integer userId) {
 
 		ModelAndView modelandview = new ModelAndView();

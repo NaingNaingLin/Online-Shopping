@@ -74,9 +74,9 @@
 							<td th:text="${user.address.country}"></td>
 							<td th:text="${user.phoneNo}"></td>
 							<td>
-								<a th:href="@{/edit/}+${user.userId}"> Edit </a>
+								<a th:href="@{/user/edit/}+${user.userId}"> Edit </a>
 								&nbsp; &nbsp; 
-								<a th:href="@{/delete/}+${user.userId}">
+								<a th:href="@{/user/delete/}+${user.userId}">
 									Delete </a></td>
 						</tr>
 					</table>
