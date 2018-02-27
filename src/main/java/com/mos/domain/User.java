@@ -1,8 +1,8 @@
 package com.mos.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.mos.helperclasses.Address;
 
@@ -26,26 +22,25 @@ public class User implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
 	private String userCode;
-	@NotEmpty(message="First Name cannot be Empty.")
+	//@NotEmpty(message="First Name cannot be Empty.")
 	private String firstName;
-	@NotEmpty(message="Last Name cannot be Empty.")
+	//@NotEmpty(message="Last Name cannot be Empty.")
 	private String lastName;
-	@Temporal(TemporalType.DATE)
-	private Date dob;
-	@NotEmpty(message="NRC cannot be Empty.")
+	//@Temporal(TemporalType.DATE)
+	private String dob;
+	//@NotEmpty(message="NRC cannot be Empty.")
 	private String nrc;
 	@Embedded
 	private Address address;
-	@NotEmpty(message="Phone Number cannot be Empty.")
+	//@NotEmpty(message="Phone Number cannot be Empty.")
 	private String phoneNo;
-	
-	@OneToOne
+	@OneToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="Account_Id")
 	private Account accountId;
 	
 	public User() {
-		// TODO Auto-generated constructor stub
-	}
+		
+			}
 
 	public int getUserId() {
 		return userId;
@@ -79,11 +74,11 @@ public class User implements Serializable{
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
@@ -120,7 +115,7 @@ public class User implements Serializable{
 	}
 
 	
-	
+
 
 	
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<title>Myanmar Online Shopping</title>
+
+<!-- Bootstrap CSS-->
+<link rel="stylesheet"
+	href="foradmin/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome CSS-->
+<link rel="stylesheet"
+	href="foradmin/vendor/font-awesome/css/font-awesome.min.css" />
+<!-- Custom Font Icons CSS-->
+<link rel="stylesheet" href="foradmin/css/font.css" />
+<!-- Custom Font Icons CSS-->
+<link rel="stylesheet" href="foradmin/css/font.css" />
+<!-- Google fonts - Muli-->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Muli:300,400,700" />
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="foradmin/css/style.default.css"
+	id="theme-stylesheet" />
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="foradmin/css/custom.css" />
+
+</head>
+<body>
+	<header th:replace="admin/fragments/header :: header"></header>
+
+	<div class="d-flex align-items-stretch">
+		<br />
+		<div th:replace="admin/fragments/sidebar :: sidebar"></div>
+
+		<div class="page-content">
+			<div class="page-header">
+				<h2 class="h5 no-margin-bottom">Create New Account</h2>
+			</div>
+			
+			 <section class="no-padding-top no-padding-bottom">
+			        	<div class="container-fluid">
+			        		<form action="#" th:action="@{/user}" th:object="${user}" method="post" class="form-horizontal" enctype="multipart/form-data">
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="userCode">User Code</label></strong>
+			        					<input autofocus="autofocus"  type="text" class="form-control" id="userCode" placeholder="Please provide User Code!" th:field="*{userCode}" />
+			        				</div>
+			        			</div>
+			        			
+			        			
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="firstName">First Name</label></strong>
+			        					<input type="text" class="form-control" id="firstName" placeholder="Please provide First Name!" th:field="*{firstName}" />
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="lastName">Last Name</label></strong>
+			        					<input type="text" class="form-control" id="lastName" placeholder="Please provide Last Name!" th:field="*{lastName}" />
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="dob">Date Of birth</label></strong>
+			        					<input type="date" class="form-control" id="dob" placeholder="Please provide Date Of birth!" th:field="*{dob}" />
+			        				</div>
+			        			</div> 
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="nrc">NRC No</label></strong>
+			        					<input type="text" class="form-control" id="nrc" placeholder="Please provide NRC No!" th:field="*{nrc}" />
+			        				</div>
+			        			</div>
+			        			
+			        			<!-- <div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="country">Country</label></strong><br/>
+			        					<select class="form-control" th:field="*{country}" >
+			        						<option value="0" th:text="'Select Country'"></option>
+			        						<option th:each="country : ${countryList}" th:value="${country.countryName}" th:text="${country.countryName}"></option>
+			        					</select>
+			        				</div>
+			        			</div> -->
+			        			
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="address.blockNo">Block No</label></strong><br/>
+			        					<input type="text" class="form-control" id="address.blockNo" placeholder="Please provide Address Block No!" th:field="*{address.blockNo}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="address.streetName">Street Name</label></strong><br/>
+			        					<input type="text" class="form-control" id="address.streetName" placeholder="Please provide Address Street Name!" th:field="*{address.streetName}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="address.wardName">Ward Name</label></strong><br/>
+			        					<input type="text" class="form-control" id="address.wardName" placeholder="Please provide Address Ward Nmae!" th:field="*{address.wardName}"></input>
+			        				</div>
+			        			</div>
+			        			
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="address.city">City </label></strong><br/>
+			        					<input type="text" class="form-control" id="address.city" placeholder="Please provide Addreess City!" th:field="*{address.city}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="address.township">Town Ship</label></strong><br/>
+			        					<input type="text" class="form-control" id="address.township" placeholder="Please provide Address Country Township!" th:field="*{address.township}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="address.country">Country</label></strong><br/>
+			        					<input type="text" class="form-control" id="address.country" placeholder="Please provide Address Country!" th:field="*{address.country}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="phoneNo">Phone No</label></strong><br/>
+			        					<input class="form-control" id="phoneNo" placeholder="Please provide Phone No!" th:field="*{phoneNo}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="accoundId.email">Email</label></strong><br/>
+			        					<input class="form-control" id="accountId.email" placeholder="Please provide Email!" th:field="*{accountId.email}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="accountId.password">Password</label></strong><br/>
+			        					<input type="password" class="form-control" id="accountId.password" placeholder="Please provide Password!" th:field="*{accountId.password}"></input>
+			        				</div>
+			        			</div>
+			        			<div class="form-group">
+			        				<div class="col-md-6">
+			        					<strong><label for="accountId.role">Role</label></strong><br/>
+			        					<input type="text" class="form-control" id="accountId.role" placeholder="Please provide Confirm Password!" th:field="*{accountId.role}"></input>
+			        				</div>
+			        			</div>
+			        			
+			        			
+			        			<div class="form-group">
+									<div class="row">
+										<div class="col-md-3">
+											<input class="btn btn-large btn-primary form-control" type="submit" value="ADD" />
+										</div>
+										<div class="col-md-3">
+											<input class="btn btn-large btn-secondary form-control" type="reset" value="Cancel" />
+										</div>
+									</div>
+								</div>
+			        		</form>	
+			        	</div>	        	
+			        </section>
+		</div>
+		<div th:replace="admin/fragments/footer :: footer"></div>
+	</div>
+
+
+	<!-- JavaScript files-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js">
+		
+	</script>
+	<script src="foradmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="foradmin/vendor/jquery.cookie/jquery.cookie.js">
+		
+	</script>
+	<script src="foradmin/vendor/chart.js/Chart.min.js"></script>
+	<script src="foradmin/js/charts-home.js"></script>
+	<script src="foradmin/js/front.js"></script>
+
+</body>
+</html>

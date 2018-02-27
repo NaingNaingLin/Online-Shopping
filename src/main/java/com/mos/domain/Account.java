@@ -9,11 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
+
 
 @Entity
+@Table(name="Account_Id")
 public class Account implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -22,10 +23,10 @@ public class Account implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int accountId;
 	
-	@Email
+	//@Email
 	private String email;
 	
-	@Length(min=5, message="Your password must be 5.")
+	//@Length(min=5, message="Your password must be 5.")
 	private String password;
 	
 	@Enumerated(EnumType.STRING)
@@ -78,6 +79,25 @@ public class Account implements Serializable{
 		this.password = password;
 		this.role = role;
 	}
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	
 	
 }
