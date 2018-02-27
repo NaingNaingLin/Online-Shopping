@@ -29,6 +29,24 @@ public class UserController {
 
 	// @Autowired
 	// private BCryptPasswordEncoder passwordEncoder;
+	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
+	public ModelAndView userList(Model model) {
+		ModelAndView modelandview = new ModelAndView();
+		User user = new User();
+		user.setAccountId((new Account()));
+		model.addAttribute("user", user);
+		
+		model.addAttribute("account", new Account());
+
+		List<User> userList = new ArrayList<>();
+		userList = userService.findAllUser();
+
+		modelandview.addObject("saveuser", userList);
+		modelandview.setViewName("admin/views/user/saveuser");
+		return modelandview;
+	}
+
+	
 	// @GetMapping("/user")
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public ModelAndView addUser(Model model) {
@@ -36,13 +54,10 @@ public class UserController {
 		User user = new User();
 		user.setAccountId((new Account()));
 		model.addAttribute("user", user);
-		Account account = new Account();
-		model.addAttribute("account", account);
+		
+		model.addAttribute("account", new Account());
 
-		List<User> userList = new ArrayList<>();
-		userList = userService.findAllUser();
-
-		modelandview.addObject("saveuser", userList);
+		modelandview.addObject("saveuser", userService.findAllUser());
 		modelandview.setViewName("admin/views/user/userform");
 		return modelandview;
 	}
@@ -53,25 +68,23 @@ public class UserController {
 		ModelAndView modelandview = new ModelAndView();
 		userService.createUser(user);
 
-		List<User> userList = new ArrayList<>();
-		userList = userService.findAllUser();
 
-		modelandview.addObject("saveuser", userList);
+		modelandview.addObject("saveuser", userService.findAllUser());
 		modelandview.setViewName("admin/views/user/saveuser");
 		return modelandview;
 	}
 
-	@RequestMapping(path = "userform/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(path = "/edit/{userId}", method = RequestMethod.GET)
 	public String editUser(@PathVariable("userId") Integer userId, Model model) {
 
-		model.addAttribute("updatedUser", userService.findByUserId(userId));
+		model.addAttribute("updateUser", userService.findByUserId(userId));
 
 		return "admin/views/user/edituser";
 	}
 
-	@RequestMapping(path = "userform/edit/{id}", method = RequestMethod.POST)
+	@RequestMapping(path = "/edit/{userId}", method = RequestMethod.POST)
 	public ModelAndView editUser(@PathVariable("userId") Integer userId,
-			@ModelAttribute("updatedUser") @Valid User updatedUser) {
+			@ModelAttribute("updateUser") @Valid User updatedUser) {
 
 		User existedUser = userService.findByUserId(userId);
 		existedUser.setUserCode(updatedUser.getUserCode());
@@ -80,25 +93,25 @@ public class UserController {
 		existedUser.setDob(updatedUser.getDob());
 		existedUser.setNrc(updatedUser.getNrc());
 		existedUser.setAddress(updatedUser.getAddress());
+		
 		existedUser.setPhoneNo(updatedUser.getPhoneNo());
-		existedUser.setUserCode(updatedUser.getUserCode());
-		existedUser.setUserCode(updatedUser.getUserCode());
+		
 
-		//userService.editUser(userId);
+		userService.editUser(existedUser);
 
 		ModelAndView modelandview = new ModelAndView();
-		modelandview.setViewName("redirect:/list");
+		modelandview.setViewName("redirect:/userlist");
 		return modelandview;
 	}
 
-	@RequestMapping(path = "userform/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(path = "/delete/{userId}", method = RequestMethod.GET)
 	public ModelAndView deleteUser(@PathVariable("userId") Integer userId) {
 
 		ModelAndView modelandview = new ModelAndView();
 
 		userService.deleteUser(userId);
 
-		modelandview.setViewName("redirect:/saveuser");
+		modelandview.setViewName("redirect:/userlist");
 
 		return modelandview;
 	}
